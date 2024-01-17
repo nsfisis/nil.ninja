@@ -1,0 +1,3 @@
+[submodule "vhosts/t/albatross"]
+	path = vhosts/t/albatross
+	url = git@github.com:nsfisis/phperkaigi-2024-albatross.git
