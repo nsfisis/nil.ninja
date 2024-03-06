@@ -26,9 +26,5 @@ server https {
             host = "127.0.0.1"
             port = 8001
         }
-        auth basic {
-            realm = "Auth required albatross"
-            credential_file = "albatross.htpasswd"
-        }
     }
 }
