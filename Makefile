@@ -10,17 +10,17 @@ provision:
 
 .PHONY: build
 build:
-	# cd vhosts/t/albatross; make -f Makefile.prod build
+	cd vhosts/t/albatross; make -f Makefile.prod build
 	cd vhosts/t/albatross-swift; make -f Makefile.prod build
 
 .PHONY: serve
 serve:
 	sudo systemctl start mioproxy
-	# cd vhosts/t/albatross; make -f Makefile.prod serve
+	cd vhosts/t/albatross; make -f Makefile.prod serve
 	cd vhosts/t/albatross-swift; make -f Makefile.prod serve
 
 .PHONY: clean
 clean:
 	cd vhosts/t/albatross-swift; make -f Makefile.prod clean
-	# cd vhosts/t/albatross; make -f Makefile.prod clean
+	cd vhosts/t/albatross; make -f Makefile.prod clean
 	sudo systemctl stop mioproxy
