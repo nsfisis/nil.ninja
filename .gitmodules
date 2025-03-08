@@ -4,3 +4,6 @@
 [submodule "vhosts/t/albatross-swift"]
 	path = vhosts/t/albatross-swift
 	url = git@github.com:nsfisis/iosdc-japan-2024-albatross.git
+[submodule "vhosts/t/albatross-php-2025"]
+	path = vhosts/t/albatross-php-2025
+	url = git@github.com:nsfisis/phperkaigi-2025-albatross.git
