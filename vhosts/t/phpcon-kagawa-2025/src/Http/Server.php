@@ -46,9 +46,11 @@ final readonly class Server implements ResponseFactoryInterface, StreamFactoryIn
                 continue;
             }
 
-            $rawRequest = socket_read($sock, 8192);
+            echo 'Reading request...';
+            $rawRequest = $this->readRequest($sock);
+            echo "done\n";
 
-            if ($rawRequest) {
+            if ($rawRequest !== '') {
                 $request = $this->parseRequest($rawRequest);
 
                 echo 'Request: ' . $request->getMethod() . ' ' . $request->getRequestTarget() . "\n";
@@ -88,6 +90,64 @@ final readonly class Server implements ResponseFactoryInterface, StreamFactoryIn
     public function createStreamFromResource($resource): StreamInterface
     {
         throw new RuntimeException('Not implemented');
+    }
+
+    /**
+     * @param \Socket $sock
+     */
+    private function readRequest($sock): string
+    {
+        // Set socket timeout (5 seconds)
+        socket_set_option($sock, SOL_SOCKET, SO_RCVTIMEO, [
+            'sec' => 5,
+            'usec' => 0,
+        ]);
+
+        $rawRequest = '';
+        $headersComplete = false;
+        $contentLength = 0;
+        $headerEndPos = 0;
+
+        // Read headers first
+        for (; ;) {
+            $chunk = '';
+            $bytes = socket_recv($sock, $chunk, 8192, 0);
+            if ($bytes === false || $bytes === 0 || $chunk === null) {
+                break;
+            }
+            $rawRequest .= $chunk;
+
+            // Check if headers are complete
+            $headerEndPos = strpos($rawRequest, "\r\n\r\n");
+            if ($headerEndPos !== false) {
+                $headersComplete = true;
+                $headerEndPos += 4; // Include \r\n\r\n
+
+                // Parse Content-Length from headers
+                $headerSection = substr($rawRequest, 0, $headerEndPos);
+                if (preg_match('/^Content-Length:\s*(\d+)/mi', $headerSection, $matches)) {
+                    $contentLength = (int) $matches[1];
+                }
+                break;
+            }
+        }
+
+        // Read body based on Content-Length
+        if ($headersComplete && $contentLength > 0) {
+            $bodyReceived = strlen($rawRequest) - $headerEndPos;
+            while ($bodyReceived < $contentLength) {
+                $chunk = '';
+                $remaining = $contentLength - $bodyReceived;
+                $bytes = socket_recv($sock, $chunk, min($remaining, 8192), 0);
+                if ($bytes === false || $bytes === 0 || $chunk === null) {
+                    break;
+                }
+                $rawRequest .= $chunk;
+                $bodyReceived += $bytes;
+            }
+        }
+
+        return $rawRequest;
     }
 
     private function parseRequest(string $rawRequest): ServerRequest
