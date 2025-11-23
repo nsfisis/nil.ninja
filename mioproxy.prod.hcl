@@ -60,4 +60,15 @@ server https {
             port = 8004
         }
     }
+
+    proxy phpcon-kagawa-2025 {
+        from {
+            host = "t.nil.ninja"
+            path = "/phpcon-kagawa-2025/"
+        }
+        to {
+            host = "127.0.0.1"
+            port = 8005
+        }
+    }
 }

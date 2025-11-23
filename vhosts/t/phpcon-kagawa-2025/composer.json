@@ -1,0 +1,39 @@
+{
+    "name": "nsfisis/tiny-php-httpd",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nsfisis\\TinyPhpHttpd\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nsfisis"
+        }
+    ],
+    "require": {
+        "psr/http-factory": "^1.1",
+        "psr/http-message": "^2.0",
+        "psr/http-server-handler": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "symplify/easy-coding-standard": "^13.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "ecs": "ecs check",
+        "ecsfix": "ecs check --fix",
+        "phpstan": "phpstan analyse"
+    }
+}

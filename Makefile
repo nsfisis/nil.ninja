@@ -14,6 +14,7 @@ build:
 	cd vhosts/t/albatross-swift; make -f Makefile.prod build
 	cd vhosts/t/albatross-php-2025; make -f Makefile.prod build
 	cd vhosts/t/albatross-swift-2025; make -f Makefile.prod build
+	cd vhosts/t/phpcon-kagawa-2025; make -f Makefile.prod build
 
 .PHONY: serve
 serve:
@@ -22,9 +23,11 @@ serve:
 	cd vhosts/t/albatross-swift; make -f Makefile.prod serve
 	cd vhosts/t/albatross-php-2025; make -f Makefile.prod serve
 	cd vhosts/t/albatross-swift-2025; make -f Makefile.prod serve
+	cd vhosts/t/phpcon-kagawa-2025; make -f Makefile.prod serve
 
 .PHONY: clean
 clean:
+	cd vhosts/t/phpcon-kagawa-2025; make -f Makefile.prod clean
 	cd vhosts/t/albatross-swift-2025; make -f Makefile.prod clean
 	cd vhosts/t/albatross-php-2025; make -f Makefile.prod clean
 	cd vhosts/t/albatross-swift; make -f Makefile.prod clean
