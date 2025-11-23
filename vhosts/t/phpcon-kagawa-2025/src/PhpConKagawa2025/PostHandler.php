@@ -44,7 +44,7 @@ final readonly class PostHandler implements RequestHandlerInterface
     <main>
         <h1>本州四国連絡橋クイズ</h1>
         <p>四国の各県と橋でつながっている中国地方の県を選んでください。</p>
-        <form method="POST" action="/post/">
+        <form method="POST" action="/phpcon-kagawa-2025/post/">
             <div>
                 <label>愛媛とつながっているのは？</label>
                 <select name="ehime">

@@ -62,7 +62,7 @@ final readonly class CookieHandler implements RequestHandlerInterface
 <body>
     <main>
         <h1>うどん店</h1>
-        <form method="POST" action="/cookie/">
+        <form method="POST" action="/phpcon-kagawa-2025/cookie/">
             <div>
                 <select name="udon">
                     <option value="かけ">かけ</option>
