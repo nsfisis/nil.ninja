@@ -1,6 +1,6 @@
-[submodule "vhosts/t/albatross"]
-	path = vhosts/t/albatross
-	url = git@github.com:nsfisis/phperkaigi-2024-albatross.git
+[submodule "services/albatross-php-2024"]
+	path = services/albatross-php-2024
+	url = https://github.com/nsfisis/phperkaigi-2024-albatross-archive.git
 [submodule "vhosts/t/albatross-swift"]
 	path = vhosts/t/albatross-swift
 	url = git@github.com:nsfisis/iosdc-japan-2024-albatross.git
