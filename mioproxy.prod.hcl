@@ -71,4 +71,14 @@ server https {
             port = 8005
         }
     }
+
+    proxy nilink {
+        from {
+            host = "go.nil.ninja"
+        }
+        to {
+            host = "127.0.0.1"
+            port = 8006
+        }
+    }
 }

@@ -1,0 +1,11 @@
+services:
+  nilink:
+    image: ghcr.io/nsfisis/nilink:0.1.1
+    container_name: nilink
+    ports:
+      - '127.0.0.1:8006:8080'
+    volumes:
+      - ./data:/app/data
+    environment:
+      TZ: Asia/Tokyo
+    restart: always
