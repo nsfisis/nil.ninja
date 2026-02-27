@@ -81,4 +81,15 @@ server https {
             port = 8006
         }
     }
+
+    proxy albatross-php-2026 {
+        from {
+            host = "t.nil.ninja"
+            path = "/phperkaigi/2026/code-battle/"
+        }
+        to {
+            host = "127.0.0.1"
+            port = 8007
+        }
+    }
 }
