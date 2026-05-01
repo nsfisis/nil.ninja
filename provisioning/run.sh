@@ -15,8 +15,8 @@ export LEGO_CONF_DOMAINS="\
 nil.ninja,\
 go.nil.ninja,\
 t.nil.ninja"
-export GOLANG_VERSION=1.21.1
-export MIOPROXY_VERSION=v0.3.0
+export GOLANG_VERSION=1.24.13
+export MIOPROXY_VERSION=v0.5.0
 
 mitamae_bin_url="https://github.com/itamae-kitchen/mitamae/releases/download/${MITAMAE_VERSION}/mitamae-${MITAMAE_ARCH}.tar.gz"
 

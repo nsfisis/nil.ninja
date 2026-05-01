@@ -1,7 +1,7 @@
 user = "ken"
 
 server http {
-    host = "0.0.0.0"
+    hosts = ["0.0.0.0", "::"]
     port = 80
 
     redirect_to_https = true
@@ -11,7 +11,7 @@ server http {
 }
 
 server https {
-    host = "0.0.0.0"
+    hosts = ["0.0.0.0", "::"]
     port = 443
 
     tls_cert_file = "letsencrypt/lego/certificates/nil.ninja.crt"
