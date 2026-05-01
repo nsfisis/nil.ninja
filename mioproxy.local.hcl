@@ -1,5 +1,5 @@
 server http {
-    hosts = ["127.0.0.1", "::1"]
+    hosts = ["::1"]
     port = 8000
 
     proxy albatross {
