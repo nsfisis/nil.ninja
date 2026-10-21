@@ -2,7 +2,7 @@
 all: deploy
 
 .PHONY: deploy
-deploy: clean build serve
+deploy: clean
 
 .PHONY: provision
 provision:
