@@ -26,6 +26,6 @@ mkdir "${BIN_ROOT}"
 curl -L -o "${BIN_ROOT}/mitamae.tar.gz" "${mitamae_bin_url}"
 tar xf "${BIN_ROOT}/mitamae.tar.gz" -C "${BIN_ROOT}"
 mv "${BIN_ROOT}/mitamae-${MITAMAE_ARCH}" "${BIN_ROOT}/mitamae"
-rm -f '${BIN_ROOT}/mitamae.tar.gz'
+rm -f "${BIN_ROOT}/mitamae.tar.gz"
 
 "${BIN_ROOT}/mitamae" local "${this_dir}/recipe.rb"
