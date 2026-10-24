@@ -97,9 +97,9 @@ HTML;
             $postData = [];
             parse_str((string) $request->getBody(), $postData);
 
-            $userEhime = $postData['ehime'] ?? '';
-            $userKagawa = $postData['kagawa'] ?? '';
-            $userTokushima = $postData['tokushima'] ?? '';
+            $userEhime = is_string($postData['ehime'] ?? null) ? $postData['ehime'] : '';
+            $userKagawa = is_string($postData['kagawa'] ?? null) ? $postData['kagawa'] : '';
+            $userTokushima = is_string($postData['tokushima'] ?? null) ? $postData['tokushima'] : '';
 
             $results = [];
             $score = 0;

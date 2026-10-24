@@ -12,6 +12,11 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final readonly class CookieHandler implements RequestHandlerInterface
 {
+    private const array MENU = ['かけ', 'ぶっかけ', '釜揚げ', '釜玉'];
+
+    // Keep the cookie well below the 4 KB limit browsers impose.
+    private const int MAX_ORDERS = 20;
+
     public function __construct(
         private ResponseFactoryInterface $responseFactory,
         private StreamFactoryInterface $streamFactory,
@@ -32,8 +37,8 @@ final readonly class CookieHandler implements RequestHandlerInterface
         if ($request->getMethod() === 'POST') {
             $postData = [];
             parse_str((string) $request->getBody(), $postData);
-            $newOrder = $postData['udon'] ?? '';
-            if ($newOrder !== '') {
+            $newOrder = $postData['udon'] ?? null;
+            if (is_string($newOrder) && in_array($newOrder, self::MENU, true) && count($orders) < self::MAX_ORDERS) {
                 $orders[] = $newOrder;
                 $setCookie = 'order=' . urlencode(implode(',', $orders)) . '; path=/';
             }
@@ -51,6 +56,11 @@ final readonly class CookieHandler implements RequestHandlerInterface
             $orderList = '<p>まだ注文がありません。</p>';
         }
 
+        $options = implode('', array_map(
+            static fn (string $item) => '<option value="' . htmlspecialchars($item) . '">' . htmlspecialchars($item) . '</option>',
+            self::MENU,
+        ));
+
         $body = <<<HTML
 <!DOCTYPE html>
 <html lang="ja">
@@ -65,10 +75,7 @@ final readonly class CookieHandler implements RequestHandlerInterface
         <form method="POST" action="/phpcon-kagawa-2025/cookie/">
             <div>
                 <select name="udon">
-                    <option value="かけ">かけ</option>
-                    <option value="ぶっかけ">ぶっかけ</option>
-                    <option value="釜揚げ">釜揚げ</option>
-                    <option value="釜玉">釜玉</option>
+                    {$options}
                 </select>
             </div>
             <button type="submit">注文</button>
