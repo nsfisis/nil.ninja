@@ -31,7 +31,11 @@ final class Response implements ResponseInterface
         403 => 'Forbidden',
         404 => 'Not Found',
         405 => 'Method Not Allowed',
+        408 => 'Request Timeout',
+        413 => 'Content Too Large',
+        431 => 'Request Header Fields Too Large',
         500 => 'Internal Server Error',
+        501 => 'Not Implemented',
         502 => 'Bad Gateway',
         503 => 'Service Unavailable',
     ];
