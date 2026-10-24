@@ -4,3 +4,11 @@ services:
     ports:
       - '127.0.0.1:8005:8080'
     restart: always
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
+    pids_limit: 16
+    cpus: 0.5
