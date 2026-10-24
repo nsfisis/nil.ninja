@@ -60,7 +60,7 @@ HTML;
 
         return $this->responseFactory->createResponse(200)
             ->withHeader('Content-Type', 'text/html; charset=UTF-8')
-            ->withHeader('Set-Cookie', 'order=; Max-Age=0; path=/')
+            ->withHeader('Set-Cookie', 'order=; Max-Age=0; Path=/; HttpOnly; SameSite=Lax')
             ->withBody($this->streamFactory->createStream($body));
     }
 }

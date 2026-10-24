@@ -40,7 +40,7 @@ final readonly class CookieHandler implements RequestHandlerInterface
             $newOrder = $postData['udon'] ?? null;
             if (is_string($newOrder) && in_array($newOrder, self::MENU, true) && count($orders) < self::MAX_ORDERS) {
                 $orders[] = $newOrder;
-                $setCookie = 'order=' . urlencode(implode(',', $orders)) . '; path=/';
+                $setCookie = 'order=' . urlencode(implode(',', $orders)) . '; Path=/; HttpOnly; SameSite=Lax';
             }
         }
 
