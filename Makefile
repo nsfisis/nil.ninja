@@ -15,6 +15,7 @@ build:
 	cd services/albatross-php-2026;   make build
 	cd services/albatross-swift-2024; make build
 	cd services/albatross-php-2025;   make build
+	cd services/albatross-swift-2025; make build
 	cd vhosts/t/phpcon-kagawa-2025;   make -f Makefile.prod build
 
 .PHONY: serve
@@ -25,13 +26,13 @@ serve:
 	cd services/albatross-php-2026;   make serve
 	cd services/albatross-swift-2024; make serve
 	cd services/albatross-php-2025;   make serve
+	cd services/albatross-swift-2025; make serve
 	cd vhosts/t/phpcon-kagawa-2025;   make -f Makefile.prod serve
 
 .PHONY: clean
 clean:
 	cd vhosts/t/phpcon-kagawa-2025;   make -f Makefile.prod clean
-	cd services/albatross-swift-2025-archive; make clean
-	cd vhosts/t/albatross-swift-2025; make -f Makefile.prod clean
+	cd services/albatross-swift-2025; make clean
 	cd services/albatross-php-2025;   make clean
 	cd services/albatross-swift-2024; make clean
 	-docker compose -p albatross-swift down --remove-orphans

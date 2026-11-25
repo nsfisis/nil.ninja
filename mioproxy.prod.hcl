@@ -50,6 +50,17 @@ server https {
         }
     }
 
+    proxy albatross-swift-2025 {
+        from {
+            host = "t.nil.ninja"
+            path = "/iosdc-japan/2025/code-battle/"
+        }
+        to {
+            host = "127.0.0.1"
+            port = 8004
+        }
+    }
+
     proxy phpcon-kagawa-2025 {
         from {
             host = "t.nil.ninja"
