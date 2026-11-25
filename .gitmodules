@@ -1,9 +1,6 @@
 [submodule "services/albatross-php-2024"]
 	path = services/albatross-php-2024
 	url = https://github.com/nsfisis/phperkaigi-2024-albatross-archive.git
-[submodule "vhosts/t/albatross-swift"]
-	path = vhosts/t/albatross-swift
-	url = git@github.com:nsfisis/iosdc-japan-2024-albatross.git
 [submodule "vhosts/t/albatross-php-2025"]
 	path = vhosts/t/albatross-php-2025
 	url = git@github.com:nsfisis/phperkaigi-2025-albatross.git
@@ -13,8 +10,8 @@
 [submodule "services/albatross-php-2026"]
 	path = services/albatross-php-2026
 	url = https://github.com/nsfisis/phperkaigi-2026-albatross-archive.git
-[submodule "services/albatross-swift-2024-archive"]
-	path = services/albatross-swift-2024-archive
+[submodule "services/albatross-swift-2024"]
+	path = services/albatross-swift-2024
 	url = https://github.com/nsfisis/iosdc-japan-2024-albatross-archive.git
 [submodule "services/albatross-php-2025-archive"]
 	path = services/albatross-php-2025-archive
