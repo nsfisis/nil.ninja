@@ -37,6 +37,7 @@ clean:
 	cd services/albatross-php-2025-archive; make clean
 	cd vhosts/t/albatross-php-2025;   make -f Makefile.prod clean
 	cd services/albatross-swift-2024; make clean
+	-docker compose -p albatross-swift down --remove-orphans
 	cd services/albatross-php-2026;   make clean
 	cd services/nilink;               make -f Makefile.prod clean
 	cd services/albatross-php-2024;   make -f Makefile.prod clean
