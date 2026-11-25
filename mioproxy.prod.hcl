@@ -39,6 +39,17 @@ server https {
         }
     }
 
+    proxy albatross-php-2025 {
+        from {
+            host = "t.nil.ninja"
+            path = "/phperkaigi/2025/code-battle/"
+        }
+        to {
+            host = "127.0.0.1"
+            port = 8003
+        }
+    }
+
     proxy albatross-swift-2025 {
         from {
             host = "t.nil.ninja"
