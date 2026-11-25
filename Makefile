@@ -13,8 +13,6 @@ build:
 	cd services/albatross-php-2024;   make -f Makefile.prod build
 	cd services/nilink;               make -f Makefile.prod build
 	cd services/albatross-php-2026;   make build
-	cd vhosts/t/albatross-swift;      make -f Makefile.prod build
-	cd services/albatross-swift-2024-archive; make build
 	cd vhosts/t/albatross-php-2025;   make -f Makefile.prod build
 	cd services/albatross-php-2025-archive; make build
 	cd vhosts/t/albatross-swift-2025; make -f Makefile.prod build
@@ -27,8 +25,6 @@ serve:
 	cd services/albatross-php-2024;   make -f Makefile.prod serve
 	cd services/nilink;               make -f Makefile.prod serve
 	cd services/albatross-php-2026;   make serve
-	cd vhosts/t/albatross-swift;      make -f Makefile.prod serve
-	cd services/albatross-swift-2024-archive; make serve
 	cd vhosts/t/albatross-php-2025;   make -f Makefile.prod serve
 	cd services/albatross-php-2025-archive; make serve
 	cd vhosts/t/albatross-swift-2025; make -f Makefile.prod serve

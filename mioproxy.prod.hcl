@@ -28,28 +28,6 @@ server https {
         }
     }
 
-    proxy albatross-swift {
-        from {
-            host = "t.nil.ninja"
-            path = "/iosdc-japan/2024/code-battle/"
-        }
-        to {
-            host = "127.0.0.1"
-            port = 8002
-        }
-    }
-
-    proxy albatross-swift-2024-archive {
-        from {
-            host = "t.nil.ninja"
-            path = "/iosdc-japan/2024/code-battle-archive/"
-        }
-        to {
-            host = "127.0.0.1"
-            port = 8012
-        }
-    }
-
     proxy albatross-php-2025 {
         from {
             host = "t.nil.ninja"
