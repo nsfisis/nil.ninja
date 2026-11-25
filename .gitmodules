@@ -19,3 +19,6 @@
 [submodule "services/albatross-php-2025-archive"]
 	path = services/albatross-php-2025-archive
 	url = https://github.com/nsfisis/phperkaigi-2025-albatross-archive.git
+[submodule "services/albatross-swift-2025-archive"]
+	path = services/albatross-swift-2025-archive
+	url = https://github.com/nsfisis/iosdc-japan-2025-albatross-archive.git
